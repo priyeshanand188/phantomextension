@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "PHANTOM",
+  "version": "1.0.0",
+  "description": "Your browser is not alone. A consent-based horror experience for the sites you choose to haunt.",
+  "minimum_chrome_version": "120",
+  "icons": {
+    "16": "assets/images/icon16.png",
+    "32": "assets/images/icon32.png",
+    "48": "assets/images/icon48.png",
+    "128": "assets/images/icon128.png"
+  },
+  "action": {
+    "default_title": "PHANTOM",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/images/icon16.png",
+      "32": "assets/images/icon32.png",
+      "48": "assets/images/icon48.png"
+    }
+  },
+  "background": { "service_worker": "background.js" },
+  "permissions": ["storage", "alarms", "scripting", "activeTab"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/images/*", "assets/audio/*"],
+      "matches": ["https://*/*", "http://*/*"],
+      "use_dynamic_url": true
+    }
+  ]
+}

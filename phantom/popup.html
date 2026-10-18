@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PHANTOM</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <main>
+    <header>
+      <img class="logo" src="assets/images/logo.svg" alt="" width="40" height="40">
+      <div class="brand">
+        <h1>PHANTOM</h1>
+        <p class="tag">Your browser is not alone.</p>
+      </div>
+      <span id="demoBadge" class="badge" hidden>Demo mode</span>
+    </header>
+
+    <section class="master" aria-labelledby="masterLabel">
+      <div class="master-text">
+        <span id="masterLabel" class="master-title">Haunting</span>
+        <span id="status" class="status" role="status"><i class="dot"></i><b id="statusText">Dormant</b></span>
+      </div>
+      <label class="switch big">
+        <input type="checkbox" id="enabled" aria-labelledby="masterLabel">
+        <span class="track"><span class="thumb"></span></span>
+      </label>
+    </section>
+
+    <section class="card stage-card" aria-label="Progression">
+      <div class="stage-head">
+        <div>
+          <div class="k">Stage</div>
+          <div class="stage-name" id="stageName">1 · Anomaly</div>
+        </div>
+        <div class="pips" id="pips" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+      <p class="hint" id="stageHint"></p>
+      <div class="row between">
+        <label class="row gap"><span class="switch small"><input type="checkbox" id="escalation"><span class="track"><span class="thumb"></span></span></span><span>Escalation</span></label>
+        <button class="link" id="reset" type="button">Reset progression</button>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Settings">
+      <div class="field">
+        <div class="k">Intensity</div>
+        <div class="seg" id="intensity" role="radiogroup" aria-label="Intensity">
+          <button type="button" role="radio" data-v="low">Low</button>
+          <button type="button" role="radio" data-v="medium">Medium</button>
+          <button type="button" role="radio" data-v="high">High</button>
+        </div>
+      </div>
+
+      <div class="row between field">
+        <label for="sound">Sound</label>
+        <label class="switch small"><input type="checkbox" id="sound"><span class="track"><span class="thumb"></span></span></label>
+      </div>
+
+      <div class="field">
+        <div class="row between"><label for="frequency">Event frequency</label><output id="frequencyOut"></output></div>
+        <input type="range" id="frequency" min="1" max="10" step="1">
+        <div class="scale"><span>rare</span><span>frequent</span></div>
+      </div>
+
+      <div class="field">
+        <div class="row between"><label for="cooldownSec">Cooldown between events</label><output id="cooldownOut"></output></div>
+        <input type="range" id="cooldownSec" min="30" max="600" step="30">
+      </div>
+
+      <div class="field">
+        <div class="row between"><label for="maxDurationSec">Max event length</label><output id="durOut"></output></div>
+        <input type="range" id="maxDurationSec" min="1" max="6" step="1">
+      </div>
+    </section>
+
+    <section class="card" aria-label="Site access">
+      <div class="k">Haunted sites</div>
+      <div class="site-now">
+        <span id="siteName" class="mono">—</span>
+        <button class="btn small" id="siteBtn" type="button" disabled>Haunt this site</button>
+      </div>
+      <div class="chips" id="presets"></div>
+      <ul id="siteList" class="sites"></ul>
+      <p class="hint">PHANTOM only runs on sites you add. It never touches sign-in or payment pages.</p>
+    </section>
+
+    <button class="btn scare" id="test" type="button">Test scare</button>
+    <p id="toast" class="toast" role="status" aria-live="polite"></p>
+
+    <section class="card demo" id="demoPanel" hidden aria-label="Demo controls">
+      <div class="k">Demo controls · same renderer as live events</div>
+      <div class="grid">
+        <button class="btn" data-demo="whisper" type="button">Trigger whisper</button>
+        <button class="btn" data-demo="glitch" type="button">Trigger glitch</button>
+        <button class="btn" data-demo="jumpscare" type="button">Trigger jumpscare</button>
+        <button class="btn" data-demo="escalation" type="button">Preview escalation</button>
+      </div>
+    </section>
+
+    <footer>
+      <label class="row gap"><span class="switch small"><input type="checkbox" id="demoMode"><span class="track"><span class="thumb"></span></span></span><span>Demo mode</span></label>
+      <span class="mono dim">no network · no tracking</span>
+    </footer>
+  </main>
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+{ "name": "phantom-tests", "private": true, "version": "1.0.0",
+  "description": "Optional offline test harness (not shipped in the extension).",
+  "scripts": { "test": "node run.js" },
+  "devDependencies": { "jsdom": "^24.0.0" } }
